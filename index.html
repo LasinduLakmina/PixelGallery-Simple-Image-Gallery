@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PixelGallery - Modern Image Manager</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <canvas id="particle-canvas"></canvas>
+        <header class="app-header">
+            <div class="header-content">
+                <h1 class="app-title">PixelGallery</h1>
+                <div class="stats-bar">
+                    <div class="stat-item">
+                        <span class="stat-value" id="image-count">0</span>
+                        <span class="stat-label">Images</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value" id="total-size">0</span>
+                        <span class="stat-label">MB</span>
+                    </div>
+                </div>
+            </div>
+            <div class="controls">
+                <button class="upload-btn" id="upload-btn">
+                    <svg class="upload-icon" viewBox="0 0 24 24"><path d="M19 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-5M12 3v14m0 0 4-4m-4 4-4-4"/></svg>
+                    Upload Images
+                </button>
+                <input type="file" id="image-upload" accept="image/*" multiple hidden>
+                <div class="search-container">
+                    <input type="text" id="search-input" placeholder="Search images...">
+                    <select id="sort-select" class="sort-select">
+                        <option value="date">Newest First</option>
+                        <option value="name">A to Z</option>
+                    </select>
+                </div>
+            </div>
+        </header>
+        
+        <div class="gallery-container">
+            <div class="gallery-grid" id="gallery"></div>
+        </div>
+
+        <!-- Image Management Bar -->
+        <div class="management-bar hidden" id="management-bar">
+            <div class="selected-count">
+                <span id="selected-count">0</span> Selected
+            </div>
+            <div class="management-actions">
+                <button class="btn download-selected" id="download-selected" disabled>
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2m-7-5l5 5m0 0l-5 5m5-5H6"/></svg>
+                    Download Selected
+                </button>
+                <button class="btn delete-selected" id="delete-selected" disabled>
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M19 7l-.867 12.142A2 2 0 0 1 16.138 21H7.862a2 2 0 0 1-1.995-1.858L5 7m5 4v6m4-6v6M4 7h16m-4-4l-1 3H9L8 3m4 5v12"/></svg>
+                    Delete Selected
+                </button>
+                <button class="btn clear-selection" id="clear-selection">
+                    Clear Selection
+                </button>
+            </div>
+        </div>
+
+        <!-- Image Modal -->
+        <div class="modal" id="modal">
+            <div class="modal-content">
+                <img id="expanded-image" class="modal-image" alt="Expanded view">
+                <div class="image-info" id="image-info"></div>
+                <div class="modal-actions">
+                    <button class="btn delete-btn" id="delete-btn">Delete</button>
+                    <button class="btn close-btn" id="close-btn">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
