@@ -1,4 +1,4 @@
-# Simple-Image-Gallery
+# PixelGallery--Simple-Image-Gallery
 
 A retro-futuristic image gallery with a synthwave vibe. This gallery allows users to upload images that appear as floating cards with a neon glow effect. Each image can be clicked to expand with a holographic zoom effect and deleted with a "digital dissolve" animation. The design takes inspiration from the synthwave aesthetic, featuring vibrant neon colors and glitch effects.
 
